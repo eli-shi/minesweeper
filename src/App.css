@@ -40,3 +40,84 @@
 .read-the-docs {
   color: #888;
 }
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+  box-sizing: border-box;
+}
+
+.game {
+   background-color: darkgreen;
+   width: 100%;
+   min-height: 100vh;
+   position: relative;
+}
+
+.minesweeper{
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: lightgreen;
+  position: relative;
+  
+}
+
+.menu button {
+  padding: 5px 10px 5px 10px;
+  font-size: 20px;
+  border-style: dashed;
+  border-width: 3px;
+  border-color: darkolivegreen;
+  background-color: greenyellow;
+}
+
+.board {
+  margin: 2em auto;
+  display: grid;
+  grid-gap: 2px;
+  width: 45vw;
+  height: 45vw;
+  background: rgb(4, 64, 0);
+  border: 10px solid rgb(8, 113, 2);
+  border-radius: 10px;
+}
+
+.boardBlock {
+  height: auto;
+  width: auto;
+  border-style: solid;
+  border-width: 4px;
+  border-color: grey;
+  background-color: grey;
+  position: relative;
+}
+
+.unrevealed {
+  border-top-color: white;
+  border-left-color: white;
+  background-color: darkgrey;
+}
+
+.revealed {
+  border-width: 0px;
+  background-color: grey;
+}
+
+.empty {
+  border-width: 0px;
+  background-color: darkgrey;
+}
+
+.one, .two, .thee, .four, .five{
+  font: "Courier New", Courier, monospace;
+  color: green;
+  font-size: 20px;
+  text-align: center;
+}
