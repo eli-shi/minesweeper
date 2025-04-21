@@ -2,7 +2,7 @@ import DefaultBlock from './Block';
 import { BlockClassName } from './Block';
 import { BlockStatus } from './Block';
 
-export const buildBoard = ({ rows, columns, numberOfMines }: { rows: number, columns: number, numberOfMines: number }) => {
+const buildBoard = ({ rows, columns, numberOfMines }: { rows: number, columns: number, numberOfMines: number }) => {
     const tempBlock: DefaultBlock = {
         className: BlockClassName.default,
         blockStatus: BlockStatus.unrevealed,
@@ -46,5 +46,24 @@ export const buildBoard = ({ rows, columns, numberOfMines }: { rows: number, col
 }
 
 
+const placeBombs = (board: DefaultBlock[][], numberOfMines: number) => {
+    const rows = board.length;
+    const columns = board[0].length;
+    let currentNumOfMines = 0;
+
+    while (currentNumOfMines < numberOfMines) {
+        const row = Math.floor(Math.random() * rows);
+        const column = Math.floor(Math.random() * columns);
+
+        if (board[row][column].className === BlockClassName.default) {
+            board[row][column].className = BlockClassName.bomb;
+            currentNumOfMines++;
+        }
+    }
+    return board;
+}
+
 
 {/* function that reveals blocks*/ }
+
+export { buildBoard, placeBombs };
