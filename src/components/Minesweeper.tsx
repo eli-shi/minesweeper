@@ -22,7 +22,7 @@ export const Minesweeper = ({ rows, columns, numberOfMines }: { rows: number, co
         <div className="board" style={boardStyle}>
             {board.map((row) =>
                 row.map((block, x) => (
-                    <BoardBlock key={1} block={block} reveal={setBoard} />
+                    <BoardBlock key={x * Math.random()} block={block} reveal={setBoard} />
                 ))
             )}
             {/* add on click */}

@@ -1,7 +1,19 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx", // Enables JSX support for React
+    "esModuleInterop": true, // Fixes the default import issue
+    "moduleResolution": "node",
+    "strict": true,
+    "target": "es6",
+    "module": "esnext"
+  }
 }
