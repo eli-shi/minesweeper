@@ -1,5 +1,4 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+
 import { buildBoard, placeBombs } from '../utils/Board';
 import '@testing-library/jest-dom';
 import DefaultBlock, { BlockClassName, BlockStatus } from '../utils/Block';

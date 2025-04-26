@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { buildBoard } from '../utils/Board';
 import DefaultBlock from '../utils/Block';
 import { BlockStatus } from '../utils/Block';
