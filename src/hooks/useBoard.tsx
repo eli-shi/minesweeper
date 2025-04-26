@@ -4,8 +4,8 @@ import DefaultBlock from '../utils/Block';
 import { BlockStatus } from '../utils/Block';
 import { BlockClassName } from '../utils/Block';
 
-export function useBoard({ rows, columns, numberOfMines }: { rows: number, columns: number, numberOfMines: number }) {
-    const [board, setBoard] = useState(buildBoard({ rows, columns, numberOfMines }));
+export function useBoard({ rows, columns }: { rows: number, columns: number, numberOfMines: number }) {
+    const [board, setBoard] = useState(buildBoard({ rows, columns }));
 
     function revealBlock(block: DefaultBlock) {
         {
