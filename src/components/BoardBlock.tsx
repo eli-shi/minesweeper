@@ -6,5 +6,5 @@ export const BoardBlock = ({ block, reveal }: { block: DefaultBlock, reveal: (bl
         <div className={`boardBlock ${block.blockStatus} ${block.className}`} onClick={() => { console.log("clicked"); console.log(block.className); reveal(block); }}>
             <p>{block.className}</p>
         </div>
-    )
-}
+    );
+};

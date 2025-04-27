@@ -10,7 +10,7 @@ test('buildBoard function returns array with correct dimensions', () => {
 
     expect(board).toHaveLength(rows);
     expect(board[0]).toHaveLength(columns);
-})
+});
 
 test('buildBoard function returns array with correct block properties', () => {
     const rows = 6;
@@ -24,7 +24,7 @@ test('buildBoard function returns array with correct block properties', () => {
         });
     }
     );
-})
+});
 
 test('buildBoard function returns array with correct block className', () => {
     const rows = 6;

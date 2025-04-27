@@ -6,7 +6,7 @@ const buildBoard = ({ rows, columns }: { rows: number, columns: number }) => {
     const tempBlock: DefaultBlock = {
         className: BlockClassName.default,
         blockStatus: BlockStatus.unrevealed,
-    }
+    };
 
     const builtBoard: DefaultBlock[][] = Array.from({ length: rows }, () =>
         Array.from({ length: columns }, () => ({
@@ -14,9 +14,9 @@ const buildBoard = ({ rows, columns }: { rows: number, columns: number }) => {
         }))
     );
 
-    console.log("builtBoard")
+    console.log("builtBoard");
     return builtBoard;
-}
+};
 
 
 const placeBombs = (board: DefaultBlock[][], numberOfMines: number) => {
@@ -34,7 +34,7 @@ const placeBombs = (board: DefaultBlock[][], numberOfMines: number) => {
         }
     }
     return board;
-}
+};
 
 
 {/* function that reveals blocks*/ }

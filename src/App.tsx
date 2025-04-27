@@ -1,5 +1,5 @@
-import './App.css'
-import { Game } from './components/Game'
+import './App.css';
+import { Game } from './components/Game';
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
       <Game rows={10} columns={10} />
 
     </>
-  )
+  );
 }
 
-export default App
+export default App;

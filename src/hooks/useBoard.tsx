@@ -14,7 +14,7 @@ export function useBoard({ rows, columns }: { rows: number, columns: number, num
             if (block.className !== BlockClassName.default && block.className == BlockClassName.bomb) {
                 {/* set gameOver to true*/ }
             } else {
-                block.blockStatus = BlockStatus.revealed
+                block.blockStatus = BlockStatus.revealed;
             }
 
             const newBoard: DefaultBlock[][] = [...board];

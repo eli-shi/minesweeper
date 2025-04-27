@@ -23,4 +23,4 @@ export const Board = ({ board, rows, columns, setBoard }: { board: DefaultBlock[
             {/* add on click */}
         </div>
     );
-}
+};
