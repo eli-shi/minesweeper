@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import { buildBoard } from '../utils/Board';
-import DefaultBlock from '../utils/Block';
-import { BlockStatus } from '../utils/Block';
-import { BlockClassName } from '../utils/Block';
+import { buildInitialBoard } from '../utils/Board';
+import DefaultBlock, { BlockClassName, BlockStatus } from '../utils/Block';
 
-export function useBoard({ rows, columns }: { rows: number, columns: number, numberOfMines: number }) {
-    const [board, setBoard] = useState(buildBoard({ rows, columns }));
+
+export function useBoard({ rows, columns, numberOfMines }: { rows: number, columns: number, numberOfMines: number }) {
+
+    const [board, setBoard] = useState(buildInitialBoard(rows, columns, numberOfMines));
 
     function revealBlock(block: DefaultBlock) {
         {
             console.log(block);
 
-            if (block.className !== BlockClassName.default && block.className == BlockClassName.bomb) {
+            if (block.className !== BlockClassName.empty && block.className == BlockClassName.bomb) {
                 {/* set gameOver to true*/ }
             } else {
                 block.blockStatus = BlockStatus.revealed;

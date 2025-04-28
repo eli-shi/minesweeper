@@ -1,8 +1,8 @@
 import "./style.css";
 
-import { useState } from "react";
+// import { useState } from "react";
 
-import { Menu } from "./Menu";
+// import { Menu } from "./Menu";
 import { Minesweeper } from "./Minesweeper";
 
 
@@ -12,14 +12,15 @@ export const Game = ({ rows, columns }: { rows: number, columns: number }) => {
     console.log(rows);
     console.log(columns);
 
-    const [gameOver, setGameOver] = useState(false);
+    // const [gameOver, setGameOver] = useState(false);
 
 
     return (
         <div className="game">
 
             {/*if the game is over, present menu, else present the game arena */}
-            {gameOver ? <Menu /> : <Minesweeper rows={rows} columns={columns} numberOfMines={5} />}
+            {/* {gameOver ? <Menu /> : <Minesweeper rows={rows} columns={columns} numberOfMines={5} />} */}
+            <Minesweeper rows={rows} columns={columns} numberOfMines={5} />
 
         </div>
     );
