@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { buildInitialBoard } from '../utils/Board';
-import DefaultBlock from '../utils/Block';
-import { BlockStatus } from '../utils/Block';
-import { BlockClassName } from '../utils/Block';
+import DefaultBlock, { BlockClassName, BlockStatus } from '../utils/Block';
+
 
 export function useBoard({ rows, columns, numberOfMines }: { rows: number, columns: number, numberOfMines: number }) {
 
@@ -12,7 +11,7 @@ export function useBoard({ rows, columns, numberOfMines }: { rows: number, colum
         {
             console.log(block);
 
-            if (block.className !== BlockClassName.default && block.className == BlockClassName.bomb) {
+            if (block.className !== BlockClassName.empty && block.className == BlockClassName.bomb) {
                 {/* set gameOver to true*/ }
             } else {
                 block.blockStatus = BlockStatus.revealed;

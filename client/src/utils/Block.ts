@@ -8,7 +8,6 @@ export enum BlockStatus {
 export enum BlockClassName {
     bomb = "bomb",
     empty = "empty",
-    default = "",
 
 }
 

@@ -1,21 +1,18 @@
-import DefaultBlock from './Block';
-import { BlockClassName } from './Block';
-import { BlockStatus } from './Block';
+import DefaultBlock, { BlockClassName, BlockStatus } from './Block';
 
 const buildEmptyBoard = ({ rows, columns }: { rows: number, columns: number }) => {
     const tempBlock: DefaultBlock = {
-        className: BlockClassName.default,
+        className: BlockClassName.empty,
         blockStatus: BlockStatus.unrevealed,
     };
 
-    const builtBoard: DefaultBlock[][] = Array.from({ length: rows }, () =>
+    const emptyBoard: DefaultBlock[][] = Array.from({ length: rows }, () =>
         Array.from({ length: columns }, () => ({
             ...tempBlock
         }))
     );
 
-    console.log("builtBoard");
-    return builtBoard;
+    return emptyBoard;
 };
 
 
@@ -28,7 +25,7 @@ const placeBombs = (board: DefaultBlock[][], numberOfMines: number) => {
         const row = Math.floor(Math.random() * rows);
         const column = Math.floor(Math.random() * columns);
 
-        if (board[row][column].className === BlockClassName.default) {
+        if (board[row][column].className === BlockClassName.empty) {
             board[row][column].className = BlockClassName.bomb;
             currentNumOfMines++;
         }
@@ -84,4 +81,4 @@ const buildInitialBoard = (rows: number, columns: number, numberOfMines: number)
 
 {/* function that reveals blocks*/ }
 
-export { buildInitialBoard };
+export { buildInitialBoard, placeBombs, numberBoard, buildEmptyBoard };

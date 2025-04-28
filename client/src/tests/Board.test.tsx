@@ -1,5 +1,5 @@
 
-import { buildBoard, placeBombs, numberBoard } from '../utils/Board';
+import { buildEmptyBoard, placeBombs, numberBoard } from '../utils/Board';
 import '@testing-library/jest-dom';
 import 'jest-extended';
 import DefaultBlock, { BlockClassName, BlockStatus } from '../utils/Block';
@@ -12,7 +12,7 @@ import { mockEmptyBoard, mockOneBombBoard, mockTwoBombBoard, mockThreeBombBoard,
 test('buildBoard function returns array with correct dimensions', () => {
     const rows = 6;
     const columns = 6;
-    const board = buildBoard({ rows, columns });
+    const board = buildEmptyBoard({ rows, columns });
 
     expect(board).toHaveLength(rows);
     expect(board[0]).toHaveLength(columns);
@@ -21,7 +21,7 @@ test('buildBoard function returns array with correct dimensions', () => {
 test('buildBoard function returns array with correct block properties', () => {
     const rows = 6;
     const columns = 6;
-    const board = buildBoard({ rows, columns });
+    const board = buildEmptyBoard({ rows, columns });
 
     board.forEach((row: DefaultBlock[]) => {
         row.forEach((block: DefaultBlock) => {
@@ -35,11 +35,11 @@ test('buildBoard function returns array with correct block properties', () => {
 test('buildBoard function returns array with correct block className', () => {
     const rows = 6;
     const columns = 6;
-    const board = buildBoard({ rows, columns });
+    const board = buildEmptyBoard({ rows, columns });
 
     board.forEach((row: DefaultBlock[]) => {
         row.forEach((block: DefaultBlock) => {
-            expect(block.className).toBe(BlockClassName.default);
+            expect(block.className).toBe(BlockClassName.empty);
         });
     });
 }
@@ -48,7 +48,7 @@ test('buildBoard function returns array with correct block className', () => {
 test('buildBoard function returns array with correct block status', () => {
     const rows = 6;
     const columns = 6;
-    const board = buildBoard({ rows, columns });
+    const board = buildEmptyBoard({ rows, columns });
 
     board.forEach((row: DefaultBlock[]) => {
         row.forEach((block: DefaultBlock) => {
@@ -64,12 +64,12 @@ test('placeBombs function returns array with correct bomb count', () => {
     const rows = 6;
     const columns = 6;
     const numberOfMines = 4;
-    const initialBoard = buildBoard({ rows, columns });
+    const initialBoard = buildEmptyBoard({ rows, columns });
 
     const bombBoard = placeBombs(initialBoard, numberOfMines);
 
     let bombCount = 0;
-    bombBoard.forEach((row) => {
+    bombBoard.forEach((row: DefaultBlock[]) => {
         row.forEach((block) => {
             if (block.className === BlockClassName.bomb) {
                 bombCount++;
@@ -83,7 +83,7 @@ test('placeBombs function returns array with correct bomb count', () => {
 //tests for numberBoard to return correct numbering depending on the case
 test('case #0: empty board', () => {
     const numberedBoard = numberBoard(mockEmptyBoard);
-    numberedBoard.forEach((row) => {
+    numberedBoard.forEach((row: DefaultBlock[]) => {
         row.forEach((block) => {
             expect(block.className).toBe(BlockClassName.empty);
         });
@@ -95,7 +95,7 @@ test('case #1: board with one bomb', () => {
     const numberedBoard = numberBoard(mockOneBombBoard);
 
 
-    numberedBoard.forEach((row, y) => {
+    numberedBoard.forEach((row: DefaultBlock[], y: number) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 0) || (x == 0 && y === 1) || (x === 1 && y === 1)) {
                 expect(block.className).toBe(1);
@@ -112,7 +112,7 @@ test('case #2: board with two bomb', () => {
     const numberedBoard = numberBoard(mockTwoBombBoard);
 
 
-    numberedBoard.forEach((row, y) => {
+    numberedBoard.forEach((row: DefaultBlock[], y: number) => {
         row.forEach((block, x) => {
             if ((x === 2 && y === 0) || (x == 2 && y === 1)) {
                 expect(block.className).toBe(1);
@@ -130,7 +130,7 @@ test('case #3: board with three bomb', () => {
     const numberedBoard = numberBoard(mockThreeBombBoard);
 
 
-    numberedBoard.forEach((row, y) => {
+    numberedBoard.forEach((row: DefaultBlock[], y: number) => {
         row.forEach((block, x) => {
             if ((x === 0 && y === 1) || (x == 2 && y === 1)) {
                 expect(block.className).toBe(2);
@@ -148,7 +148,7 @@ test('case #4: board with four bomb', () => {
     const numberedBoard = numberBoard(mockFourBombBoard);
 
 
-    numberedBoard.forEach((row, y) => {
+    numberedBoard.forEach((row: DefaultBlock[], y: number) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 1)) {
                 expect(block.className).toBe(4);
@@ -168,7 +168,7 @@ test('case #5: board with five bomb', () => {
     const numberedBoard = numberBoard(mockFiveBombBoard);
 
 
-    numberedBoard.forEach((row, y) => {
+    numberedBoard.forEach((row: DefaultBlock[], y: number) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 1)) {
                 expect(block.className).toBe(5);
@@ -187,7 +187,7 @@ test('case #6: board with six bomb', () => {
     const numberedBoard = numberBoard(mockSixBombBoard);
 
 
-    numberedBoard.forEach((row, y) => {
+    numberedBoard.forEach((row: DefaultBlock[], y: number) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 1)) {
                 expect(block.className).toBe(6);
@@ -206,7 +206,7 @@ test('case #7: board with seven bomb', () => {
     const numberedBoard = numberBoard(mockSevenBombBoard);
 
 
-    numberedBoard.forEach((row, y) => {
+    numberedBoard.forEach((row: DefaultBlock[], y: number) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 1)) {
                 expect(block.className).toBe(7);
@@ -223,7 +223,7 @@ test('case #8: board with eight bomb', () => {
     const numberedBoard = numberBoard(mockEightBombBoard);
 
 
-    numberedBoard.forEach((row, y) => {
+    numberedBoard.forEach((row: DefaultBlock[], y: number) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 1)) {
                 expect(block.className).toBe(8);
