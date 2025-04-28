@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { buildBoard } from '../utils/Board';
+import { buildInitialBoard } from '../utils/Board';
 import DefaultBlock from '../utils/Block';
 import { BlockStatus } from '../utils/Block';
 import { BlockClassName } from '../utils/Block';
 
-export function useBoard({ rows, columns }: { rows: number, columns: number, numberOfMines: number }) {
-    const [board, setBoard] = useState(buildBoard({ rows, columns }));
+export function useBoard({ rows, columns, numberOfMines }: { rows: number, columns: number, numberOfMines: number }) {
+
+    const [board, setBoard] = useState(buildInitialBoard(rows, columns, numberOfMines));
 
     function revealBlock(block: DefaultBlock) {
         {

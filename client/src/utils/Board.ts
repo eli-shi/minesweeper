@@ -2,7 +2,7 @@ import DefaultBlock from './Block';
 import { BlockClassName } from './Block';
 import { BlockStatus } from './Block';
 
-const buildBoard = ({ rows, columns }: { rows: number, columns: number }) => {
+const buildEmptyBoard = ({ rows, columns }: { rows: number, columns: number }) => {
     const tempBlock: DefaultBlock = {
         className: BlockClassName.default,
         blockStatus: BlockStatus.unrevealed,
@@ -75,6 +75,13 @@ const numberBoard = (board: DefaultBlock[][]) => {
     return board;
 }
 
+const buildInitialBoard = (rows: number, columns: number, numberOfMines: number) => {
+    const emptyBoard = buildEmptyBoard({ rows, columns });
+    const bombBoard = placeBombs(emptyBoard, numberOfMines);
+    const numberedBoard = numberBoard(bombBoard);
+    return numberedBoard;
+}
+
 {/* function that reveals blocks*/ }
 
-export { buildBoard, placeBombs, numberBoard };
+export { buildInitialBoard };
