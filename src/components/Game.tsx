@@ -24,4 +24,4 @@ export const Game = ({ rows, columns }: { rows: number, columns: number }) => {
         </div>
     );
 
-}
+};

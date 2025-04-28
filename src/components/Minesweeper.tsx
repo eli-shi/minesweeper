@@ -27,5 +27,5 @@ export const Minesweeper = ({ rows, columns, numberOfMines }: { rows: number, co
             )}
             {/* add on click */}
         </div>
-    )
-}
+    );
+};

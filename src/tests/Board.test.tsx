@@ -1,5 +1,4 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+
 import { buildBoard, placeBombs } from '../utils/Board';
 import '@testing-library/jest-dom';
 import DefaultBlock, { BlockClassName, BlockStatus } from '../utils/Block';
@@ -7,18 +6,16 @@ import DefaultBlock, { BlockClassName, BlockStatus } from '../utils/Block';
 test('buildBoard function returns array with correct dimensions', () => {
     const rows = 6;
     const columns = 6;
-    const numberOfMines = 4;
-    const board = buildBoard({ rows, columns, numberOfMines });
+    const board = buildBoard({ rows, columns });
 
     expect(board).toHaveLength(rows);
     expect(board[0]).toHaveLength(columns);
-})
+});
 
 test('buildBoard function returns array with correct block properties', () => {
     const rows = 6;
     const columns = 6;
-    const numberOfMines = 4;
-    const board = buildBoard({ rows, columns, numberOfMines });
+    const board = buildBoard({ rows, columns });
 
     board.forEach((row: DefaultBlock[]) => {
         row.forEach((block: DefaultBlock) => {
@@ -27,13 +24,12 @@ test('buildBoard function returns array with correct block properties', () => {
         });
     }
     );
-})
+});
 
 test('buildBoard function returns array with correct block className', () => {
     const rows = 6;
     const columns = 6;
-    const numberOfMines = 4;
-    const board = buildBoard({ rows, columns, numberOfMines });
+    const board = buildBoard({ rows, columns });
 
     board.forEach((row: DefaultBlock[]) => {
         row.forEach((block: DefaultBlock) => {
@@ -46,8 +42,7 @@ test('buildBoard function returns array with correct block className', () => {
 test('buildBoard function returns array with correct block status', () => {
     const rows = 6;
     const columns = 6;
-    const numberOfMines = 4;
-    const board = buildBoard({ rows, columns, numberOfMines });
+    const board = buildBoard({ rows, columns });
 
     board.forEach((row: DefaultBlock[]) => {
         row.forEach((block: DefaultBlock) => {
@@ -62,7 +57,7 @@ test('buildBoard function returns array with correct bomb count', () => {
     const rows = 6;
     const columns = 6;
     const numberOfMines = 4;
-    const initialBoard = buildBoard({ rows, columns, numberOfMines });
+    const initialBoard = buildBoard({ rows, columns });
 
     const bombBoard = placeBombs(initialBoard, numberOfMines);
 

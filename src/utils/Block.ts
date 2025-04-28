@@ -14,6 +14,6 @@ export enum BlockClassName {
 type DefaultBlock = {
     blockStatus: BlockStatus,
     className: BlockClassName,
-}
+};
 
 export default DefaultBlock;
