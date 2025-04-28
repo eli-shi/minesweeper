@@ -36,7 +36,45 @@ const placeBombs = (board: DefaultBlock[][], numberOfMines: number) => {
     return board;
 };
 
+const numberBoard = (board: DefaultBlock[][]) => {
+    const rows = board.length;
+    const columns = board[0].length;
+
+    for (let row = 0; row < rows; row++) {
+        for (let column = 0; column < columns; column++) {
+            if (board[row][column].className === BlockClassName.bomb) {
+                continue;
+            }
+
+            let bombCount = 0;
+
+            for (let i = -1; i <= 1; i++) {
+                for (let j = -1; j <= 1; j++) {
+                    const newRow = row + i;
+                    const newColumn = column + j;
+
+                    if (
+                        newRow >= 0 &&
+                        newRow < rows &&
+                        newColumn >= 0 &&
+                        newColumn < columns &&
+                        board[newRow][newColumn].className === BlockClassName.bomb
+                    ) {
+                        bombCount++;
+                    }
+                }
+            }
+
+            if (bombCount > 0) {
+                board[row][column].className = bombCount as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+            } else {
+                board[row][column].className = BlockClassName.empty;
+            }
+        }
+    }
+    return board;
+}
 
 {/* function that reveals blocks*/ }
 
-export { buildBoard, placeBombs };
+export { buildBoard, placeBombs, numberBoard };
