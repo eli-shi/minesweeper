@@ -106,7 +106,7 @@ test('case #1: board with one bomb', () => {
 
         });
     });
-})
+});
 
 test('case #2: board with two bomb', () => {
     const numberedBoard = numberBoard(mockTwoBombBoard);
@@ -124,7 +124,7 @@ test('case #2: board with two bomb', () => {
 
         });
     });
-})
+});
 
 test('case #3: board with three bomb', () => {
     const numberedBoard = numberBoard(mockThreeBombBoard);
@@ -142,7 +142,7 @@ test('case #3: board with three bomb', () => {
 
         });
     });
-})
+});
 
 test('case #4: board with four bomb', () => {
     const numberedBoard = numberBoard(mockFourBombBoard);
@@ -161,7 +161,7 @@ test('case #4: board with four bomb', () => {
             }
         });
     });
-})
+});
 
 
 test('case #5: board with five bomb', () => {
@@ -181,7 +181,7 @@ test('case #5: board with five bomb', () => {
             }
         });
     });
-})
+});
 
 test('case #6: board with six bomb', () => {
     const numberedBoard = numberBoard(mockSixBombBoard);
@@ -200,7 +200,7 @@ test('case #6: board with six bomb', () => {
             }
         });
     });
-})
+});
 
 test('case #7: board with seven bomb', () => {
     const numberedBoard = numberBoard(mockSevenBombBoard);
@@ -217,7 +217,7 @@ test('case #7: board with seven bomb', () => {
             }
         });
     });
-})
+});
 
 test('case #8: board with eight bomb', () => {
     const numberedBoard = numberBoard(mockEightBombBoard);
@@ -232,5 +232,5 @@ test('case #8: board with eight bomb', () => {
             }
         });
     });
-})
+});
 

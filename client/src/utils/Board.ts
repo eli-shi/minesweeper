@@ -70,14 +70,14 @@ const numberBoard = (board: DefaultBlock[][]) => {
         }
     }
     return board;
-}
+};
 
 const buildInitialBoard = (rows: number, columns: number, numberOfMines: number) => {
     const emptyBoard = buildEmptyBoard({ rows, columns });
     const bombBoard = placeBombs(emptyBoard, numberOfMines);
     const numberedBoard = numberBoard(bombBoard);
     return numberedBoard;
-}
+};
 
 {/* function that reveals blocks*/ }
 
