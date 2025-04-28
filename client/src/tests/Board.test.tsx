@@ -1,6 +1,7 @@
 
 import { buildBoard, placeBombs, numberBoard } from '../utils/Board';
 import '@testing-library/jest-dom';
+import 'jest-extended';
 import DefaultBlock, { BlockClassName, BlockStatus } from '../utils/Block';
 import { mockEmptyBoard, mockOneBombBoard, mockTwoBombBoard, mockThreeBombBoard, mockFourBombBoard, mockFiveBombBoard, mockSixBombBoard, mockSevenBombBoard, mockEightBombBoard } from '../mocks/boardMocks';
 
@@ -38,7 +39,7 @@ test('buildBoard function returns array with correct block className', () => {
 
     board.forEach((row: DefaultBlock[]) => {
         row.forEach((block: DefaultBlock) => {
-            expect(block.className).toBe(BlockClassName.empty);
+            expect(block.className).toBe(BlockClassName.default);
         });
     });
 }
@@ -97,27 +98,28 @@ test('case #1: board with one bomb', () => {
     numberedBoard.forEach((row, y) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 0) || (x == 0 && y === 1) || (x === 1 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.one);
+                expect(block.className).toBe(1);
             } else {
-                expect(block.className).toBe(BlockClassName.empty || BlockClassName.bomb);
+                expect(block.className).toBeOneOf([BlockClassName.empty, BlockClassName.bomb]);
             }
+
 
         });
     });
 })
 
 test('case #2: board with two bomb', () => {
-    const numberedBoard = numberBoard(mockThreeBombBoard);
+    const numberedBoard = numberBoard(mockTwoBombBoard);
 
 
     numberedBoard.forEach((row, y) => {
         row.forEach((block, x) => {
             if ((x === 2 && y === 0) || (x == 2 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.one);
+                expect(block.className).toBe(1);
             } else if ((x === 0 && y === 1) || (x == 1 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.two);
+                expect(block.className).toBe(2);
             } else {
-                expect(block.className).toBe(BlockClassName.empty || BlockClassName.bomb);
+                expect(block.className).toBeOneOf([BlockClassName.empty, BlockClassName.bomb]);
             }
 
         });
@@ -130,12 +132,12 @@ test('case #3: board with three bomb', () => {
 
     numberedBoard.forEach((row, y) => {
         row.forEach((block, x) => {
-            if ((x === 0 && y === 1) || (x == 3 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.two);
+            if ((x === 0 && y === 1) || (x == 2 && y === 1)) {
+                expect(block.className).toBe(2);
             } else if ((x === 1 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.three);
+                expect(block.className).toBe(3);
             } else {
-                expect(block.className).toBe(BlockClassName.empty || BlockClassName.bomb);
+                expect(block.className).toBeOneOf([BlockClassName.empty, BlockClassName.bomb]);
             }
 
         });
@@ -149,13 +151,13 @@ test('case #4: board with four bomb', () => {
     numberedBoard.forEach((row, y) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.four);
+                expect(block.className).toBe(4);
             } else if ((x === 2 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.two);
+                expect(block.className).toBe(2);
             } else if ((x === 0 && y === 2) || (x === 1 && y === 2)) {
-                expect(block.className).toBe(BlockClassName.one);
+                expect(block.className).toBe(1);
             } else {
-                expect(block.className).toBe(BlockClassName.empty || BlockClassName.bomb);
+                expect(block.className).toBeOneOf([BlockClassName.empty, BlockClassName.bomb]);
             }
         });
     });
@@ -169,11 +171,11 @@ test('case #5: board with five bomb', () => {
     numberedBoard.forEach((row, y) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.four);
-            } else if ((x === 2 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.two);
-            } else if (x === 0 && y === 2) {
-                expect(block.className).toBe(BlockClassName.one);
+                expect(block.className).toBe(5);
+            } else if ((x === 1 && y === 2)) {
+                expect(block.className).toBe(2);
+            } else if ((x === 0 && y === 2) || (x === 2 && y === 2)) {
+                expect(block.className).toBe(1);
             } else {
                 expect(block.className).toBe(BlockClassName.bomb);
             }
@@ -188,11 +190,11 @@ test('case #6: board with six bomb', () => {
     numberedBoard.forEach((row, y) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.six);
+                expect(block.className).toBe(6);
             } else if ((x === 1 && y === 2)) {
-                expect(block.className).toBe(BlockClassName.two);
+                expect(block.className).toBe(3);
             } else if (x === 2 && y === 2) {
-                expect(block.className).toBe(BlockClassName.one);
+                expect(block.className).toBe(1);
             } else {
                 expect(block.className).toBe(BlockClassName.bomb);
             }
@@ -207,9 +209,9 @@ test('case #7: board with seven bomb', () => {
     numberedBoard.forEach((row, y) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.seven);
+                expect(block.className).toBe(7);
             } else if (x === 2 && y === 2) {
-                expect(block.className).toBe(BlockClassName.two);
+                expect(block.className).toBe(2);
             } else {
                 expect(block.className).toBe(BlockClassName.bomb);
             }
@@ -224,7 +226,7 @@ test('case #8: board with eight bomb', () => {
     numberedBoard.forEach((row, y) => {
         row.forEach((block, x) => {
             if ((x === 1 && y === 1)) {
-                expect(block.className).toBe(BlockClassName.eight);
+                expect(block.className).toBe(8);
             } else {
                 expect(block.className).toBe(BlockClassName.bomb);
             }
