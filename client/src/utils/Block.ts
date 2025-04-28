@@ -9,19 +9,13 @@ export enum BlockClassName {
     bomb = "bomb",
     empty = "empty",
     default = "",
-    one = "one",
-    two = "two",
-    three = "three",
-    four = "four",
-    five = "five",
-    six = "six",
-    seven = "seven",
-    eight = "eight",
+
 }
 
 type DefaultBlock = {
     blockStatus: BlockStatus,
-    className: BlockClassName,
+    className: BlockClassName | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
+
 };
 
 export default DefaultBlock;
