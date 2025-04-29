@@ -1,9 +1,10 @@
 import "./style.css";
 
-// import { useState } from "react";
+
 
 // import { Menu } from "./Menu";
 import { Minesweeper } from "./Minesweeper";
+import { useGameOver } from "../hooks/useGameOver";
 
 
 export const Game = ({ rows, columns }: { rows: number, columns: number }) => {
@@ -12,15 +13,33 @@ export const Game = ({ rows, columns }: { rows: number, columns: number }) => {
     console.log(rows);
     console.log(columns);
 
-    // const [gameOver, setGameOver] = useState(false);
+    const { gameOver, triggerGameOver, resetGameOver } = useGameOver();
+
 
 
     return (
         <div className="game">
 
             {/*if the game is over, present menu, else present the game arena */}
-            {/* {gameOver ? <Menu /> : <Minesweeper rows={rows} columns={columns} numberOfMines={5} />} */}
-            <Minesweeper rows={rows} columns={columns} numberOfMines={5} />
+            {gameOver ? (
+                <div className="gameOver">
+                    <h1>Game Over</h1>
+                    <button onClick={() => {
+                        console.log("game reset button clicked");
+                        resetGameOver();
+                    }}>Play Again</button>
+                </div>
+            ) : (
+                <Minesweeper
+                    rows={rows}
+                    columns={columns}
+                    numberOfMines={5}
+                    triggerGameOver={() => {
+                        console.log("triggerGameOver passed to Minesweeper");
+                        triggerGameOver();
+                    }}
+                />
+            )}
 
         </div>
     );

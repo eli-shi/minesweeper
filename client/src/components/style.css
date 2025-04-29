@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: "Courier New", Courier, monospace;
@@ -6,13 +6,13 @@
 }
 
 .game {
-     background-color: darkgreen;
-     width: 100%;
-     min-height: 100vh;
-     position: relative;
+    background-color: darkgreen;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
 }
 
-.minesweeper{
+.minesweeper {
     position: relative;
 }
 
@@ -23,7 +23,7 @@
     flex-direction: column;
     background-color: lightgreen;
     position: relative;
-    
+
 }
 
 .menu button {
@@ -62,22 +62,48 @@
     background-color: darkgrey;
 }
 
+
 .revealed {
     border-width: 0px;
+    align-items: center;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.revealed .empty {
+    background-color: grey;
     background-color: grey;
 }
 
-.empty {
-    border-width: 0px;
-    background-color: darkgrey;
+.revealed [data-value="1"] {
+    color: blue;
 }
 
-.one, .two, .thee, .four, .five{
-    font: "Courier New", Courier, monospace;
+.revealed [data-value="2"] {
     color: green;
-    font-size: 20px;
-    text-align: center;
 }
 
+.revealed [data-value="3"] {
+    color: orange;
+}
 
+.revealed [data-value="4"] {
+    color: red;
+}
 
+.revealed [data-value="5"] {
+    color: darkblue;
+}
+
+.revealed [data-value="6"] {
+    color: purple;
+}
+
+.revealed [data-value="7"] {
+    color: darkorchid;
+}
+
+.revealed [data-value="8"] {
+    color: black;
+}
