@@ -4,8 +4,8 @@ import "./style.css";
 
 
 
-export const Minesweeper = ({ rows, columns, numberOfMines }: { rows: number, columns: number, numberOfMines: number }) => {
-    const [board, setBoard] = useBoard({ rows, columns, numberOfMines });
+export const Minesweeper = ({ rows, columns, numberOfMines, triggerGameOver }: { rows: number, columns: number, numberOfMines: number, triggerGameOver: () => void }) => {
+    const [board, revealBlock] = useBoard({ rows, columns, numberOfMines });
 
     console.log("Minesweeper component");
     console.log(rows);
@@ -22,7 +22,10 @@ export const Minesweeper = ({ rows, columns, numberOfMines }: { rows: number, co
         <div className="board" style={boardStyle}>
             {board.map((row) =>
                 row.map((block, x) => (
-                    <BoardBlock key={x * Math.random()} block={block} reveal={setBoard} />
+                    <BoardBlock
+                        key={x * Math.random()}
+                        block={block}
+                        reveal={(block) => revealBlock(block, triggerGameOver)} />
                 ))
             )}
             {/* add on click */}

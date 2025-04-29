@@ -7,20 +7,26 @@ export function useBoard({ rows, columns, numberOfMines }: { rows: number, colum
 
     const [board, setBoard] = useState(buildInitialBoard(rows, columns, numberOfMines));
 
-    function revealBlock(block: DefaultBlock) {
-        {
-            console.log(block);
+    function revealBlock(block: DefaultBlock, triggerGameOver: () => void) {
 
-            if (block.className !== BlockClassName.empty && block.className == BlockClassName.bomb) {
-                {/* set gameOver to true*/ }
-            } else {
-                block.blockStatus = BlockStatus.revealed;
-            }
-
-            const newBoard: DefaultBlock[][] = [...board];
-
-            setBoard(newBoard);
+        if (block.blockStatus === BlockStatus.revealed) {
+            // If the block is already revealed, do nothing
+            return;
         }
+
+        console.log(block);
+
+        if (block.className == BlockClassName.bomb) {
+            block.blockStatus = BlockStatus.revealed; // Mark the bomb as revealed
+            const newBoard: DefaultBlock[][] = [...board];
+            setBoard(newBoard); // Update the board state
+            triggerGameOver(); // Trigger game over
+        } else {
+            block.blockStatus = BlockStatus.revealed; // Mark the block as revealed
+            const newBoard: DefaultBlock[][] = [...board];
+            setBoard(newBoard); // Update the board state
+        }
+
 
     }
     {/* should be callback or useEffect so that it can reset the board whenever a new block is reveal, aka when the block.status changes */ }
