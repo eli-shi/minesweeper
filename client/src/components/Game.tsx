@@ -5,6 +5,7 @@ import "./style.css";
 // import { Menu } from "./Menu";
 import { Minesweeper } from "./Minesweeper";
 import { useGameOver } from "../hooks/useGameOver";
+import { Menu } from "./Menu";
 
 
 export const Game = ({ rows, columns }: { rows: number, columns: number }) => {
@@ -22,13 +23,7 @@ export const Game = ({ rows, columns }: { rows: number, columns: number }) => {
 
             {/*if the game is over, present menu, else present the game arena */}
             {gameOver ? (
-                <div className="gameOver">
-                    <h1>Game Over</h1>
-                    <button onClick={() => {
-                        console.log("game reset button clicked");
-                        resetGameOver();
-                    }}>Play Again</button>
-                </div>
+                <Menu resetGameOver={resetGameOver} />
             ) : (
                 <Minesweeper
                     rows={rows}
