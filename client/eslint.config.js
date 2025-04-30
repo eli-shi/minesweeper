@@ -5,33 +5,60 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import stylistic from '@stylistic/eslint-plugin'
 
-export default defineConfig([
-  tseslint.config(
-    { ignores: ['dist'] },
-    {
-      extends: [js.configs.recommended, ...tseslint.configs.recommended],
-      files: ['**/*.{ts,tsx}'],
-      languageOptions: {
-        ecmaVersion: 2020,
-        globals: globals.browser,
-      },
-      plugins: {
-        'react-hooks': reactHooks,
-        'react-refresh': reactRefresh,
-        '@stylistic': stylistic,
-      },
-      rules: {
-        ...reactHooks.configs.recommended.rules,
-        'react-refresh/only-export-components': [
-          'warn',
-          { allowConstantExport: true },
-        ],
-        '@stylistic/semi': 'error',
-      },
+// export default defineConfig([
+//   tseslint.config(
+//     { ignores: ['dist'] },
+//     {
+//       extends: [js.configs.recommended, ...tseslint.configs.recommended],
+//       files: ['**/*.{ts,tsx}'],
+//       languageOptions: {
+//         ecmaVersion: 2020,
+//         globals: globals.browser,
+//       },
+//       plugins: {
+//         'react-hooks': reactHooks,
+//         'react-refresh': reactRefresh,
+//         '@stylistic': stylistic,
+//       },
+//       rules: {
+//         ...reactHooks.configs.recommended.rules,
+//         'react-refresh/only-export-components': [
+//           'warn',
+//           { allowConstantExport: true },
+//         ],
+//         '@stylistic/semi': 'error',
+//       },
+//     },
+//   ),
+//   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], plugins: { js }, extends: ["js/recommended"] },
+//   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], languageOptions: { globals: globals.browser } },
+//   tseslint.configs.recommended,
+//   pluginReact.configs.flat.recommended,
+// ]);
+
+export default tseslint.config(
+  { ignores: ['dist'] },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
     },
-  ),
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], plugins: { js }, extends: ["js/recommended"] },
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], languageOptions: { globals: globals.browser } },
-  tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-]);
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+      '@stylistic': stylistic,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+      '@stylistic/semi': 'error',
+
+
+    },
+  },
+)
