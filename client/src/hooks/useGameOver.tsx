@@ -5,12 +5,12 @@ function useGameOver() {
     const [gameOver, setGameOver] = useState(false);
 
     function triggerGameOver() {
-        console.log("GameOver")
+        console.log("GameOver");
         setGameOver(true);
     }
 
     function resetGameOver() {
-        console.log("resetGameOver")
+        console.log("resetGameOver");
         setGameOver(false);
     }
 
