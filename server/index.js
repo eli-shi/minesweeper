@@ -27,10 +27,13 @@ app.use((req, res, next) => {
 
 const userRoutes = require('./routes/user');
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 app.use('/api/user', userRoutes);
 
-
+// app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // app.use((req, res) => {
 //     res.status(200).send('Hello, World!');

@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 
 function useGameOver() {
-    const [gameOver, setGameOver] = useState(false);
+    const [gameOver, setGameOver] = useState(true);
 
     function triggerGameOver() {
         console.log("GameOver");

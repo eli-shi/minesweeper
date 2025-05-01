@@ -1,5 +1,5 @@
 import './App.css';
-// import { Game } from './components/Game';
+import { Game } from './components/Game';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Login } from './components/Login';
 import { Signup } from './components/Singup';
@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Game rows={10} columns={10} />} />
         </Routes>
       </BrowserRouter>
     </div>
