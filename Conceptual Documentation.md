@@ -1,3 +1,8 @@
+### Simple Network Architecture Diagram
+<img width="1030" alt="Image" src="https://github.com/user-attachments/assets/e23136a7-3820-4d05-a654-f044112373aa" />
+
+
+
 ### File Structure
 minesweeper/
 ├── client/                 # Frontend code (React or similar)
