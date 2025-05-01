@@ -17,9 +17,16 @@ You can ask anyone at anytime to review your code, however there should be a mor
 - [ ] Clean code comments?
 
 ### 3. Testing
-
+- [ ] Do unit tests pass?
+- [ ] Do manual tests pass?
+- [ ] Have all edge cases been discovered?
+- [ ] Have all edge cases been tested?
+- [ ] Are invalid inputes validated?
 
 ### 4. Maintainability
-
+- [ ] Is the code easy to read?
+- [ ] Is the code following DRY Principles
 
 ### 5. Documentation
+- [ ] Is there sufficient documentation?
+- [ ] Are all the files up to date?
