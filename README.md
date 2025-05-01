@@ -6,7 +6,7 @@
 
 Project Owner: Elina Shirinyan
 
-### Table of Contents
+### Table of Contents (all located in the documentations folder)
 - GitHub Guidelines
 - Conceptual Documentation
 - Code Reviews
