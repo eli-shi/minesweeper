@@ -13,8 +13,6 @@ require("dotenv").config({
 
 const UserModel = require('./models/userModel');
 
-// app.use(express.static(path.join(__dirname, '../client/dist')));
-// app.use(cors());
 
 
 app.use(express.json());
@@ -33,11 +31,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/user', userRoutes);
 
-// app.use(express.static(path.join(__dirname, '../client/dist')));
-
-// app.use((req, res) => {
-//     res.status(200).send('Hello, World!');
-// });
 
 mongoose.connect('mongodb+srv://elinashirinyan:fnQj0vj489WHT1gR@cluster0.ra3cpee.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
     .then(() => {
