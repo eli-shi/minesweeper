@@ -34,7 +34,7 @@ No common errors have appeared yet, but once they will, they will be documented 
 
 ### Examples of requests with Postman
 
-![[Screenshot 2025-05-02 at 09.46.27.png]]
+<img width="1082" alt="Image" src="https://github.com/user-attachments/assets/a6026a55-aa53-4ff7-9dc2-ae31b0438931" />
 <img width="1088" alt="Image" src="https://github.com/user-attachments/assets/106c59e0-74c0-4c5c-a41f-9f6be790f6c0" />
 
 ### Security
